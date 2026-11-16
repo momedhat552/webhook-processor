@@ -1,0 +1,12 @@
+services:
+  api:
+    build: .
+    ports:
+    - "8000:8000"
+    environment:
+    - DB_PATH=/data/alerts.db
+    volumes:
+    - alerts_data:/data
+
+volumes:
+  alerts_data:

@@ -1,0 +1,6 @@
+{
+  "event_id": "evt_2",
+  "source": "server_2",
+  "message": "Low disk",
+  "timestamp": "2026-11-11T09:00:00Z"
+}
