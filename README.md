@@ -77,4 +77,4 @@ python -m uvicorn main:app --reload
 
 ## Live deployment
 
-Not deployed. (If you deploy it, put the URL here.)
+Not deployed.
