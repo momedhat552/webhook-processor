@@ -20,7 +20,17 @@ Example alert:
 }
 ```
 
-## Run with Docker (recommended)
+## Live deployment
+
+The app is deployed on an AWS EC2 instance (Ubuntu, Docker Compose):
+
+- Base URL: http://13.60.214.14:8000
+- Swagger docs: http://13.60.214.14:8000/docs
+- Stored alerts: http://13.60.214.14:8000/alerts
+
+Note: the demo server has no TLS certificate, so use `http://`, not `https://`. Your browser may show a "Not secure" warning, which is expected.
+
+## Run with Docker  
 
 Requirements: Docker and Docker Compose.
 
@@ -40,7 +50,7 @@ Data is stored in a SQLite file inside a Docker volume (`alerts_data`), so alert
 Send an alert (takes about 3 seconds because of the simulated processing):
 
 ```bash
-curl -X POST http://localhost:8000/webhook -H "Content-Type: application/json" -d @alert.json
+curl -X POST http://localhost:8000/webhook -H "Content-Type: application/json" -d "@alert.json"
 ```
 
 Expected response:
@@ -75,6 +85,3 @@ python -m uvicorn main:app --reload
 - **Storage:** SQLite. No extra service is needed, and it is persisted with a Docker volume.
 - **Idempotency:** `event_id` is the primary key and inserts use `INSERT OR REPLACE`, so a retried webhook with the same `event_id` does not create duplicates.
 
-## Live deployment
-
-Not deployed.
