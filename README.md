@@ -56,7 +56,7 @@ curl -X POST http://localhost:8000/webhook -H "Content-Type: application/json" -
 Expected response:
 
 ```json
-{"status": "processed", "event_id": "evt_2"}
+{"status": "processed", "event_id": "evt_98765"}
 ```
 
 List all processed alerts:
